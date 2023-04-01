@@ -51,9 +51,14 @@ public class LoginActivity extends AppCompatActivity {
 
             if(username.equals("admin") && password.equals("admin")) {
                 mValidationLabel.setVisibility(View.GONE);
+                navigateToProductSearch();
             } else {
                 mValidationLabel.setVisibility(View.VISIBLE);
             }
+        }
+
+        private void navigateToProductSearch() {
+            startActivity(new Intent(LoginActivity.this, SearchProductActivity.class));
         }
 
         private void navigateBack() {

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Trader Joe\'s</string>
+
+    <!--Home screen-->
     <string name="log_in">Log in</string>
     <string name="logo_alt_text">Trader Joe\'s logo</string>
     <string name="welcome_msg">Welcome to Trader Joe\'s.</string>
@@ -8,7 +10,14 @@
     <string name="terms_n_condition">
         By tapping Continue or Create Account, I agree to Trader Joe\'s <a href="">Terms of Service</a>, <a href="">Payments Terms of Service</a>, <a href="">Privacy Policy</a>, and <a href="">Non-discrimination Policy</a>.
     </string>
+
+    <!--Login screen-->
     <string name="username_hint">Enter your username</string>
     <string name="password_hint">Enter password</string>
     <string name="invalid_creds">Invalid credentials.</string>
+
+    <!--Product List page-->
+    <string name="banner">Trader Joe\'s Products</string>
+
+    <!--Product page-->
 </resources>
