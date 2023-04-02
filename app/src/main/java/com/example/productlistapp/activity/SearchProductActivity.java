@@ -18,11 +18,6 @@ import java.util.ArrayList;
 
 public class SearchProductActivity extends AppCompatActivity {
 
-    /* TODO: Need to disable the android back button so that the user
-    *   cannot go back to the login screen once they are logged in.
-    * Also, provide a logout option that will delete the session and
-    * navigate the user to the home screen*/
-
     private ListView mProductListView;
     private TextView mLogoutLink;
 
