@@ -1,9 +1,8 @@
 package com.example.productlistapp.model;
 
-import java.math.BigDecimal;
-import java.util.List;
+import java.io.Serializable;
 
-public class Feedback {
+public class Feedback implements Serializable {
     private float rating;
     private String review;
 

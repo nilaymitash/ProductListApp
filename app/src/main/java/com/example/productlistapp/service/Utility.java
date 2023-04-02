@@ -1,7 +1,10 @@
 package com.example.productlistapp.service;
 
+import com.example.productlistapp.model.Feedback;
+
 import java.math.BigDecimal;
 import java.text.NumberFormat;
+import java.util.List;
 
 public class Utility {
 
@@ -13,4 +16,12 @@ public class Utility {
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         return currency.format(amount);
     }
+
+    public static float getAverageRating(List<Feedback> feedbackList) {
+        float totalRating = 0;
+        for(int i = 0; i < feedbackList.size(); i++) {
+            totalRating += feedbackList.get(i).getRating();
+        }
+        return (totalRating/feedbackList.size());
+     }
 }

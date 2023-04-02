@@ -10,11 +10,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.productlistapp.R;
+import com.example.productlistapp.model.Feedback;
 import com.example.productlistapp.model.Product;
 import com.example.productlistapp.model.ProductListAdapter;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchProductActivity extends AppCompatActivity {
 
@@ -58,29 +60,45 @@ public class SearchProductActivity extends AppCompatActivity {
         p1.setPrice(new BigDecimal("4.69"));
         p1.setDescription(getResources().getString(R.string.wings_description));
         p1.setImgSrc(R.drawable.wings);
+        p1.setFeedback(populateFeedbackList(114, 3.5F));
 
         Product p2 = new Product();
         p2.setTitle(getResources().getString(R.string.pb_name));
         p2.setPrice(new BigDecimal("4.49"));
         p2.setDescription(getResources().getString(R.string.pb_description));
         p2.setImgSrc(R.drawable.pb);
+        p2.setFeedback(populateFeedbackList(76, 4.5F));
 
         Product p3 = new Product();
         p3.setTitle(getResources().getString(R.string.pickled_pups_name));
         p3.setPrice(new BigDecimal("4.99"));
         p3.setDescription(getResources().getString(R.string.pickled_pups_description));
         p3.setImgSrc(R.drawable.pups);
+        p3.setFeedback(populateFeedbackList(34, 5.0F));
 
         Product p4 = new Product();
         p4.setTitle(getResources().getString(R.string.sb_preserve_name));
         p4.setPrice(new BigDecimal("3.69"));
         p4.setDescription(getResources().getString(R.string.sb_preserve_description));
         p4.setImgSrc(R.drawable.strawberry);
+        p4.setFeedback(populateFeedbackList(1123, 4.0F));
 
         productList.add(p1);
         productList.add(p2);
         productList.add(p3);
         productList.add(p4);
         return productList;
+    }
+
+    private List<Feedback> populateFeedbackList(int numOfRatings, float avgRating) {
+        List<Feedback> list = new ArrayList<>();
+
+        for(int i = 0; i < numOfRatings; i++) {
+            Feedback feedback = new Feedback();
+            feedback.setRating(avgRating);
+            list.add(feedback);
+        }
+
+        return list;
     }
 }

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,8 +15,6 @@ import androidx.annotation.Nullable;
 import com.example.productlistapp.R;
 import com.example.productlistapp.service.Utility;
 
-import java.math.BigDecimal;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class ProductListAdapter extends ArrayAdapter<Product> {
@@ -37,11 +36,18 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         TextView mTextViewPrice = convertView.findViewById(R.id.product_price);
         TextView mTextViewDescription = convertView.findViewById(R.id.product_description);
         ImageView mProductImage = convertView.findViewById(R.id.product_img_holder);
+        RatingBar mProductRatingBar = convertView.findViewById(R.id.product_rating_bar);
+        TextView mProductRating = convertView.findViewById(R.id.product_rating);
+        TextView mNumOfRatings = convertView.findViewById(R.id.num_of_ratings);
 
         mProductImage.setImageResource(product.getImgSrc());
         mTextViewName.setText(String.valueOf(product.getTitle()));
         mTextViewPrice.setText(Utility.formatCurrency(product.getPrice()));
         mTextViewDescription.setText(Utility.truncateString(product.getDescription(), 160));
+        float avgRating = Utility.getAverageRating(product.getFeedback());
+        mProductRating.setText(String.valueOf(avgRating));
+        mProductRatingBar.setRating(avgRating);
+        mNumOfRatings.setText("(" + String.valueOf(product.getFeedback().size()) + ")");
 
         return convertView;
     }
