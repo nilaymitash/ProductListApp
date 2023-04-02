@@ -15,7 +15,7 @@ public class ProductActivity extends AppCompatActivity {
 
     private TextView mLogoutLink;
     private Button mBackButton;
-    private TextView mProductSKULabel;
+    private TextView mProductDescriptionLabel;
     private TextView mProductTitleLabel;
     private TextView mProductPriceLabel;
 
@@ -26,17 +26,17 @@ public class ProductActivity extends AppCompatActivity {
 
         mLogoutLink = findViewById(R.id.logout_link);
         mBackButton = findViewById(R.id.back_to_search_btn);
-        mProductSKULabel = findViewById(R.id.sku_label);
         mProductTitleLabel = findViewById(R.id.product_title_label);
         mProductPriceLabel = findViewById(R.id.product_price_label);
+        mProductDescriptionLabel = findViewById(R.id.product_description);
 
         Intent intent = getIntent();
         Product selectedProduct = (Product) intent.getSerializableExtra("selectedProduct");
         //TODO: grab search filter/sort criteria from extra
 
-        mProductSKULabel.setText(String.valueOf(selectedProduct.getSku()));
-        mProductTitleLabel.setText(String.valueOf(selectedProduct.getItem_title()));
-        mProductPriceLabel.setText(String.valueOf(selectedProduct.getRetail_price()));
+        mProductTitleLabel.setText(String.valueOf(selectedProduct.getTitle()));
+        mProductPriceLabel.setText(String.valueOf(selectedProduct.getPrice()));
+        mProductDescriptionLabel.setText(String.valueOf(selectedProduct.getDescription()));
 
         mBackButton.setOnClickListener(new ProductPageListener());
         mLogoutLink.setOnClickListener(new ProductPageListener());

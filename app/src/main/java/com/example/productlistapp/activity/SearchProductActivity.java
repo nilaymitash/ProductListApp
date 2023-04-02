@@ -36,7 +36,7 @@ public class SearchProductActivity extends AppCompatActivity {
             }
         });
 
-        ProductListAdapter adapter = new ProductListAdapter(SearchProductActivity.this, fetchProductList());
+        ProductListAdapter adapter = new ProductListAdapter(SearchProductActivity.this, populateDemoProductList());
         mProductListView.setAdapter(adapter);
         mProductListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -50,23 +50,26 @@ public class SearchProductActivity extends AppCompatActivity {
         });
     }
 
-    private ArrayList<Product> fetchProductList() {
+    private ArrayList<Product> populateDemoProductList() {
         ArrayList<Product> productList = new ArrayList<>();
 
         Product p1 = new Product();
         p1.setSku(123L);
-        p1.setItem_title("Some random product 1");
-        p1.setRetail_price(new BigDecimal("99.99"));
+        p1.setTitle("Some random product 1");
+        p1.setPrice(new BigDecimal("99.99"));
+        p1.setDescription("sample description");
 
         Product p2 = new Product();
         p2.setSku(456L);
-        p2.setItem_title("Some random product 2");
-        p2.setRetail_price(new BigDecimal("199.99"));
+        p2.setTitle("Some random product 2");
+        p2.setPrice(new BigDecimal("199.99"));
+        p2.setDescription("sample description");
 
         Product p3 = new Product();
         p3.setSku(789L);
-        p3.setItem_title("Some random product 3");
-        p3.setRetail_price(new BigDecimal("299.99"));
+        p3.setTitle("Some random product 3");
+        p3.setPrice(new BigDecimal("299.99"));
+        p3.setDescription("sample description");
 
         productList.add(p1);
         productList.add(p2);

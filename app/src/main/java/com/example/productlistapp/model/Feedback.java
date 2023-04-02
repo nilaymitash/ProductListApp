@@ -4,22 +4,22 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Feedback {
-    private List<BigDecimal> ratings;
-    private List<String> review;
+    private float rating;
+    private String review;
 
-    public List<BigDecimal> getRatings() {
-        return ratings;
+    public float getRating() {
+        return rating;
     }
 
-    public void setRatings(List<BigDecimal> ratings) {
-        this.ratings = ratings;
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 
-    public List<String> getReview() {
+    public String getReview() {
         return review;
     }
 
-    public void setReview(List<String> review) {
+    public void setReview(String review) {
         this.review = review;
     }
 }

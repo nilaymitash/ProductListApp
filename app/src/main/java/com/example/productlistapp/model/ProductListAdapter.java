@@ -33,9 +33,9 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         TextView mTextViewPrice = convertView.findViewById(R.id.product_price);
         TextView mTextViewDescription = convertView.findViewById(R.id.product_description);
 
-        mTextViewName.setText(String.valueOf(product.getItem_title()));
-        mTextViewPrice.setText(String.valueOf(product.getRetail_price()));
-        mTextViewDescription.setText(String.valueOf(product.getSku()));
+        mTextViewName.setText(String.valueOf(product.getTitle()));
+        mTextViewPrice.setText(String.valueOf(product.getPrice()));
+        mTextViewDescription.setText(String.valueOf(product.getDescription()));
 
         return convertView;
     }
