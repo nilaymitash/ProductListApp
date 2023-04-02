@@ -2,7 +2,10 @@ package com.example.productlistapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.productlistapp.R;
@@ -14,6 +17,11 @@ import java.util.ArrayList;
 
 public class SearchProductActivity extends AppCompatActivity {
 
+    /* TODO: Need to disable the android back button so that the user
+    *   cannot go back to the login screen once they are logged in.
+    * Also, provide a logout option that will delete the session and
+    * navigate the user to the home screen*/
+
     private ListView mProductListView;
 
     @Override
@@ -24,6 +32,16 @@ public class SearchProductActivity extends AppCompatActivity {
         ProductListAdapter adapter = new ProductListAdapter(SearchProductActivity.this, fetchProductList());
         mProductListView = findViewById(R.id.product_listview);
         mProductListView.setAdapter(adapter);
+        mProductListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Product selectedProduct = (Product) adapterView.getItemAtPosition(position);
+                Intent intent = new Intent(SearchProductActivity.this, ProductActivity.class);
+                intent.putExtra("selectedProduct", selectedProduct);
+                //TODO: add search filter/sort criteria as extra
+                startActivity(intent);
+            }
+        });
     }
 
     private ArrayList<Product> fetchProductList() {
