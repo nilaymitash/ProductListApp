@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.productlistapp.R;
 import com.example.productlistapp.model.Product;
@@ -23,14 +24,24 @@ public class SearchProductActivity extends AppCompatActivity {
     * navigate the user to the home screen*/
 
     private ListView mProductListView;
+    private TextView mLogoutLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_product);
 
-        ProductListAdapter adapter = new ProductListAdapter(SearchProductActivity.this, fetchProductList());
+        mLogoutLink = findViewById(R.id.logout_link);
         mProductListView = findViewById(R.id.product_listview);
+
+        mLogoutLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SearchProductActivity.this, MainActivity.class));
+            }
+        });
+
+        ProductListAdapter adapter = new ProductListAdapter(SearchProductActivity.this, fetchProductList());
         mProductListView.setAdapter(adapter);
         mProductListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,6 +75,7 @@ public class SearchProductActivity extends AppCompatActivity {
 
         productList.add(p1);
         productList.add(p2);
+        productList.add(p3);
         return productList;
     }
 }

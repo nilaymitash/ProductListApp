@@ -8,6 +8,17 @@
     tools:context=".activity.SearchProductActivity">
 
     <TextView
+        android:id="@+id/logout_link"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:text="@string/log_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/purple_700"
+        android:textStyle="bold"/>
+
+    <TextView
         android:id="@+id/banner_label"
         android:text="@string/banner"
         android:textSize="20sp"

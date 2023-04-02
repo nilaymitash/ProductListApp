@@ -18,6 +18,7 @@
 
     <!--Product List page-->
     <string name="banner">Trader Joe\'s Products</string>
+    <string name="log_out">Log out</string>
 
     <!--Product page-->
 </resources>
