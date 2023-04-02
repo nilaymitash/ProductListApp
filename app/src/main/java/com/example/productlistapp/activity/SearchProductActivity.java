@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.productlistapp.R;
 import com.example.productlistapp.model.Feedback;
@@ -34,7 +35,9 @@ public class SearchProductActivity extends AppCompatActivity {
         mLogoutLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SearchProductActivity.this, MainActivity.class));
+                Intent intent = new Intent(SearchProductActivity.this, MainActivity.class);
+                intent.putExtra(getResources().getString(R.string.signing_out_extra), true);
+                startActivity(intent);
             }
         });
 
@@ -50,6 +53,17 @@ public class SearchProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        boolean backFromProductPage = getIntent().getBooleanExtra("RETURN_FROM_PRODUCT_PAGE", false);
+
+        if (backFromProductPage) {
+            Toast.makeText(this, "Welcome back to the product page!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private ArrayList<Product> populateDemoProductList() {

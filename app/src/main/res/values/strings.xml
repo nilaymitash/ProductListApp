@@ -10,6 +10,8 @@
     <string name="terms_n_condition">
         By tapping Continue or Create Account, I agree to Trader Joe\'s <a href="">Terms of Service</a>, <a href="">Payments Terms of Service</a>, <a href="">Privacy Policy</a>, and <a href="">Non-discrimination Policy</a>.
     </string>
+    <string name="signing_out_extra">SIGNING_OUT</string>
+    <string name="sign_out_msg">You have been signed out.</string>
 
     <!--Login screen-->
     <string name="username_hint">Enter your username</string>

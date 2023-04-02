@@ -75,7 +75,9 @@ public class ProductActivity extends AppCompatActivity {
         }
 
         private void logout() {
-            startActivity(new Intent(ProductActivity.this, MainActivity.class));
+            Intent intent = new Intent(ProductActivity.this, MainActivity.class);
+            intent.putExtra(getResources().getString(R.string.signing_out_extra), true);
+            startActivity(intent);
         }
     }
 }
