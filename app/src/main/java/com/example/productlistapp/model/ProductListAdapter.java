@@ -29,7 +29,7 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
 
         Product product = getItem(position);
 
-        TextView mTextViewName = convertView.findViewById(R.id.product_name);
+        TextView mTextViewName = convertView.findViewById(R.id.product_title);
         TextView mTextViewPrice = convertView.findViewById(R.id.product_price);
         TextView mTextViewDescription = convertView.findViewById(R.id.product_description);
 
