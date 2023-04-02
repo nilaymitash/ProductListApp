@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.productlistapp.R;
 import com.example.productlistapp.model.Product;
+import com.example.productlistapp.service.Utility;
 
 public class ProductActivity extends AppCompatActivity {
 
@@ -18,6 +20,7 @@ public class ProductActivity extends AppCompatActivity {
     private TextView mProductDescriptionLabel;
     private TextView mProductTitleLabel;
     private TextView mProductPriceLabel;
+    private ImageView mProductImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +32,15 @@ public class ProductActivity extends AppCompatActivity {
         mProductTitleLabel = findViewById(R.id.product_title_label);
         mProductPriceLabel = findViewById(R.id.product_price_label);
         mProductDescriptionLabel = findViewById(R.id.product_description);
+        mProductImage = findViewById(R.id.product_img_holder);
 
         Intent intent = getIntent();
         Product selectedProduct = (Product) intent.getSerializableExtra("selectedProduct");
         //TODO: grab search filter/sort criteria from extra
 
         mProductTitleLabel.setText(String.valueOf(selectedProduct.getTitle()));
-        mProductPriceLabel.setText(String.valueOf(selectedProduct.getPrice()));
+        mProductImage.setImageResource(selectedProduct.getImgSrc());
+        mProductPriceLabel.setText(Utility.formatCurrency(selectedProduct.getPrice()));
         mProductDescriptionLabel.setText(String.valueOf(selectedProduct.getDescription()));
 
         mBackButton.setOnClickListener(new ProductPageListener());

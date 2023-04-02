@@ -9,7 +9,7 @@ public class Product implements Serializable {
 
     private long sku;
     private String title;
-    private String imgSrc;
+    private int imgSrc;
     private BigDecimal price;
     private String description;
     private List<Feedback> feedback;
@@ -30,11 +30,11 @@ public class Product implements Serializable {
         this.title = title;
     }
 
-    public String getImgSrc() {
+    public int getImgSrc() {
         return imgSrc;
     }
 
-    public void setImgSrc(String imgSrc) {
+    public void setImgSrc(int imgSrc) {
         this.imgSrc = imgSrc;
     }
 

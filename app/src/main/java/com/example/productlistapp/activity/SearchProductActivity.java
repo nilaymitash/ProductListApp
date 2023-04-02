@@ -54,26 +54,33 @@ public class SearchProductActivity extends AppCompatActivity {
         ArrayList<Product> productList = new ArrayList<>();
 
         Product p1 = new Product();
-        p1.setSku(123L);
-        p1.setTitle("Some random product 1");
-        p1.setPrice(new BigDecimal("99.99"));
-        p1.setDescription("sample description");
+        p1.setTitle(getResources().getString(R.string.wings_name));
+        p1.setPrice(new BigDecimal("4.69"));
+        p1.setDescription(getResources().getString(R.string.wings_description));
+        p1.setImgSrc(R.drawable.wings);
 
         Product p2 = new Product();
-        p2.setSku(456L);
-        p2.setTitle("Some random product 2");
-        p2.setPrice(new BigDecimal("199.99"));
-        p2.setDescription("sample description");
+        p2.setTitle(getResources().getString(R.string.pb_name));
+        p2.setPrice(new BigDecimal("4.49"));
+        p2.setDescription(getResources().getString(R.string.pb_description));
+        p2.setImgSrc(R.drawable.pb);
 
         Product p3 = new Product();
-        p3.setSku(789L);
-        p3.setTitle("Some random product 3");
-        p3.setPrice(new BigDecimal("299.99"));
-        p3.setDescription("sample description");
+        p3.setTitle(getResources().getString(R.string.pickled_pups_name));
+        p3.setPrice(new BigDecimal("4.99"));
+        p3.setDescription(getResources().getString(R.string.pickled_pups_description));
+        p3.setImgSrc(R.drawable.pups);
+
+        Product p4 = new Product();
+        p4.setTitle(getResources().getString(R.string.sb_preserve_name));
+        p4.setPrice(new BigDecimal("3.69"));
+        p4.setDescription(getResources().getString(R.string.sb_preserve_description));
+        p4.setImgSrc(R.drawable.strawberry);
 
         productList.add(p1);
         productList.add(p2);
         productList.add(p3);
+        productList.add(p4);
         return productList;
     }
 }

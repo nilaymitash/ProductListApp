@@ -5,13 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.productlistapp.R;
+import com.example.productlistapp.service.Utility;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class ProductListAdapter extends ArrayAdapter<Product> {
@@ -32,11 +36,15 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         TextView mTextViewName = convertView.findViewById(R.id.product_title);
         TextView mTextViewPrice = convertView.findViewById(R.id.product_price);
         TextView mTextViewDescription = convertView.findViewById(R.id.product_description);
+        ImageView mProductImage = convertView.findViewById(R.id.product_img_holder);
 
+        mProductImage.setImageResource(product.getImgSrc());
         mTextViewName.setText(String.valueOf(product.getTitle()));
-        mTextViewPrice.setText(String.valueOf(product.getPrice()));
-        mTextViewDescription.setText(String.valueOf(product.getDescription()));
+        mTextViewPrice.setText(Utility.formatCurrency(product.getPrice()));
+        mTextViewDescription.setText(Utility.truncateString(product.getDescription(), 160));
 
         return convertView;
     }
+
+
 }
